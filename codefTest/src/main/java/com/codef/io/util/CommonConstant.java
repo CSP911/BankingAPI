@@ -87,4 +87,23 @@ public class CommonConstant {
 	public static final String SANDBOX_CLIENT_ID 	= "ef27cfaa-10c1-4470-adac-60ba476273f9";				// CODEF 샌드박스 클라이언트 아이디
 	public static final String SANDBOX_SECERET_KEY 	= "83160c33-9045-4915-86d8-809473cdf5c3";				// CODEF 샌드박스 클라이언트 시크릿
 	
+    public static final String KDB = "0002";
+	public static final String KJBANK = "0034";
+	public static final String IBK = "0003";
+	public static final String JBBANK = "0037";
+	public static final String SUHYUP_BANK = "0007";
+	public static final String KNBANK = "0039";
+	public static final String NH = "0011";
+	public static final String KFCC = "0045";
+	public static final String WOORIBANK = "0020";
+	public static final String SINHYUB = "0048";
+	public static final String SCBANK = "0023";
+	public static final String EPOSTBANK = "0071";
+	public static final String CITYBANK = "0027";
+	public static final String KEB = "0081";
+	public static final String DGB = "0031";
+	public static final String SHINHAN = "0088";
+	public static final String BUSANBANK = "0032";
+	public static final String KBANK = "0089";
+
 }
