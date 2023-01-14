@@ -18,7 +18,7 @@ public class KR_BK_1_P_001 {
 		String cId = "";
 		AccountManager am = new AccountManager();
 		try{
-			cId = am.create("BK", "P", "1", "0088", "qct0911", "911Qkrcjstn!", "910911");
+			cId = am.create("BK", "P", "1", "0088", "", "", "910911");
 			System.out.println("######### ConnectedID request :: " + cId);
 		} catch (Exception e){
 			System.out.println(e);
