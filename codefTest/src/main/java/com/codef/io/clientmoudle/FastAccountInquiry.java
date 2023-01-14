@@ -34,6 +34,8 @@ public class FastAccountInquiry{
     private String smsAuthNo;
 
 
+    // 우리은행 : account accountPassword identity
+
     public FastAccountInquiry(JSONObject data){
         urlPath = CommonConstant.getRequestDomain()+CommonConstant.KR_BK_1_B_007;
 
@@ -49,6 +51,7 @@ public class FastAccountInquiry{
         orderBy = data.getString("orderBy");
         identity = data.getString("identity");
         smsAuthNo = data.getString("smsAuthNo");
+
     }
 
     public String requestCodefData() throws IOException, InterruptedException, ParseException, InvalidKeyException, NoSuchAlgorithmException, InvalidKeySpecException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException{
