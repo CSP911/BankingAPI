@@ -32,10 +32,10 @@ public class AccountManager {
 		
 		HashMap<String, Object> accountMap = new HashMap<String, Object>();
 		accountMap.put("countryCode",	"KR");
-		accountMap.put("businessType",	"BK");
-		accountMap.put("clientType",  	"P");
-		accountMap.put("organization",	"0088");
-		accountMap.put("loginType",  	"1");
+		accountMap.put("businessType",	bType);
+		accountMap.put("clientType",  	cType);
+		accountMap.put("organization",	oc);
+		accountMap.put("loginType",  	lType);
 		accountMap.put("password", RSAUtil.encryptRSA(pwd, CommonConstant.PUBLIC_KEY));	/**	password RSA encrypt */
 
 		accountMap.put("id", id);
