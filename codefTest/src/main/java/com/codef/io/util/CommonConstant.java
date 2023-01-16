@@ -107,4 +107,20 @@ public class CommonConstant {
 	public static final String BUSANBANK = "0032";
 	public static final String KBANK = "0089";
 
+	public static final String KBCARD = "0301";
+	public static final String WOORICARD = "0309";
+	public static final String HYUNDAECARD = "0302";
+	public static final String LOTTECARD = "0311";
+	public static final String SAMSUNGCARD = "0303";
+	public static final String HANACARD = "0313";
+	public static final String NHCARD = "0304";
+	public static final String JBCARD = "0315";
+	public static final String BCCARD = "0305";
+	public static final String KJCARD = "0316";
+	public static final String SHINHANCARD = "0306";
+	public static final String SHCARD = "0320";
+	public static final String CITYCARD = "0307";
+	public static final String JEJUCARD = "0321";
+	public static final String KDBCARD = "0002";
+
 }

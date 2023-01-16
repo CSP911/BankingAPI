@@ -23,6 +23,7 @@ public class CodefClientRequest {
 
     private String connectedId;
     private String purpose;
+    private String clientType;
 
     private String id;
     private String password;
@@ -42,7 +43,6 @@ public class CodefClientRequest {
     private String loginTypeLevel;
     private String clientTypeLevel;
 
-    private String clientType;
     private String cardNo;
     private String departmentCode;
     private String transeType;
@@ -56,6 +56,11 @@ public class CodefClientRequest {
         urlPath = CommonConstant.getRequestDomain();
         if (data.has("purpose"))
             purpose = data.getString("purpose");
+        if (data.has("clientType"))
+            clientType = data.getString("clientType");
+        if (data.has("connectedId"))
+            connectedId = data.getString("connectedId");
+
         if (data.has("organization"))
             organization = data.getString("organization");
         if (data.has("id"))
@@ -87,15 +92,32 @@ public class CodefClientRequest {
         if (data.has("accountLoanExecNo"))
             accountLoanExecNo = data.getString("accountLoanExecNo");
         if (data.has("loginTypeLevel"))
-            accountLoanExecNo = data.getString("accountLoanExecNo");
+            loginTypeLevel = data.getString("loginTypeLevel");
         if (data.has("clientTypeLevel"))
-            accountLoanExecNo = data.getString("accountLoanExecNo");
+            clientTypeLevel = data.getString("clientTypeLevel");
+        if (data.has("cardNo"))
+            cardNo = data.getString("cardNo");
+        if (data.has("departmentCode"))
+            departmentCode = data.getString("departmentCode");
+        if (data.has("transeType"))
+            transeType = data.getString("transeType");
+        if (data.has("cardName"))
+            cardName = data.getString("cardName");
+        if (data.has("duplicateCardIdx"))
+            duplicateCardIdx = data.getString("duplicateCardIdx");
+        if (data.has("applicationType"))
+            applicationType = data.getString("applicationType");
+        if (data.has("memberStoreInfoType"))
+            memberStoreInfoType = data.getString("memberStoreInfoType");
+        if (data.has("cvc"))
+            cvc = data.getString("cvc");
+
     }
 
     public String requestCodefData()
             throws IOException, InterruptedException, ParseException, InvalidKeyException, NoSuchAlgorithmException,
             InvalidKeySpecException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException {
-       
+
         HashMap<String, Object> bodyMap = new HashMap<String, Object>();
 
         switch (purpose) {
@@ -143,7 +165,12 @@ public class CodefClientRequest {
                 bodyMap.put("smsAuthNo", smsAuthNo);
                 break;
             case "cardOwn": // 보유카드
-                urlPath += CommonConstant.KR_CD_B_001;
+                if (clientType == "P") {
+                    urlPath += CommonConstant.KR_CD_P_001;
+                } else if (clientType == "B") {
+                    urlPath += CommonConstant.KR_CD_B_001;
+                }
+
                 bodyMap.put("organization", organization);
                 bodyMap.put("connectedId", connectedId);
                 bodyMap.put("identity", identity);
@@ -151,12 +178,16 @@ public class CodefClientRequest {
                 bodyMap.put("clientTypeLevel", clientTypeLevel);
                 break;
             case "cardApproval": // 카드 승인 내역
-                urlPath += CommonConstant.KR_CD_B_002;
+                if (clientType == "P") {
+                    urlPath += CommonConstant.KR_CD_P_002;
+                } else if (clientType == "B") {
+                    urlPath += CommonConstant.KR_CD_B_002;
+                }
                 bodyMap.put("organization", organization);
                 bodyMap.put("connectedId", connectedId);
                 bodyMap.put("identity", identity);
                 bodyMap.put("loginTypeLevel", loginTypeLevel);
-                bodyMap.put("clientType", clientType);
+                bodyMap.put("clientTypeLevel", clientTypeLevel);
                 bodyMap.put("startDate", startDate);
                 bodyMap.put("endDate", endDate);
                 bodyMap.put("orderBy", orderBy);
@@ -212,6 +243,7 @@ public class CodefClientRequest {
             // 요청 파라미터 설정 종료
         }
         // API 요청
+        System.out.println(bodyMap);
         return ApiRequest.reqeust(urlPath, bodyMap);
     }
 }
